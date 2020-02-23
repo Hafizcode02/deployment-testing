@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>No Title</title>
+</head>
+<body>
+	<div id="box" style="width: 200px; height: 200px; background-color: red"></div>
+	<br>
+	<div>
+		Color : 
+		<select id="list-color">
+			<option value="red">Red</option>
+			<option value="blue">Blue</option>
+			<option value="green">Green</option>
+			<option value="yellow">Yellow</option>
+		</select>
+	</div>
+	<br>
+	<div>
+		Width : 
+		<select id="list-width">
+			<option value="200px">200</option>
+			<option value="300px">300</option>
+			<option value="400px">400</option>
+			<option value="500px">500</option>
+		</select>
+	</div>
+	<br>
+	<div>
+		Height : 
+		<select id="list-height">
+			<option value="200px">200</option>
+			<option value="300px">300</option>
+			<option value="400px">400</option>
+			<option value="500px">500</option>
+		</select>
+	</div>
+	<br>
+	<div>
+		Show :
+		<select id="control">
+			<option value="">show</option>
+			<option value="none">none</option>
+		</select>
+	</div>
+	<br>
+	<div>
+		Sample Form to Change Size
+		<br>
+		<input type="text" id="wd" placeholder="width">
+		<br>
+		<input type="text" id="hg" placeholder="height">
+	</div>
+	<br>
+	<button id="fo">Fade Out</button> <button id="fi">Fade in</button>
+
+</body>
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.js"></script> -->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script type="text/javascript">
+	// Vanilla Js
+	// var box = document.getElementById("box");
+	// var collist = document.getElementById("list-color");
+	// var listwidt = document.getElementById("list-width");
+	// collist.addEventListener('change',function(evt){
+	// 	box.style.backgroundColor = evt.target.value;
+	// });
+	// listwidt.addEventListener('change',function(evt){
+	// 	box.style.width = evt.target.value;
+	// })
+
+	// Jquery
+	$(document).ready(function(){
+		var box = $('#box');
+		var collist = $('#list-color');
+		var listwidt = $('#list-width');
+		var listh = $('#list-height')
+		var onof = $('#control');
+		var wt = $('#wd');
+		var ht = $('#hg');
+		var fadein = $('#fi');
+		var fadeout = $('#fo');
+		collist.on('change',function(evt){
+			box.css('backgroundColor',evt.target.value);
+		});
+		listwidt.on('change',function(evt){
+			box.css('width',evt.target.value);
+		});
+		listh.on('change',function(evt){
+			box.css('height',evt.target.value);
+		});
+		onof.on('change',function(evt){
+			box.css('display',evt.target.value);
+		});
+		wt.on('keyup',function(evt){
+			box.css('width',evt.target.value);
+		});
+		ht.on('keyup',function(evt){
+			box.css('height',evt.target.value);
+		});
+		fadein.on('click',function(){
+			box.fadeIn();
+		});
+		fadeout.on('click',function(){
+			box.fadeOut();
+		});
+	});
+</script>
+</html>
